@@ -1,0 +1,55 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
+>>> bg.integer_validator()
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> bg.integer_validator("w")
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+>>> bg.integer_validator("size", "a string")
+Traceback (most recent call last):
+	...
+TypeError: size must be an integer
+>>> bg.integer_validator("weight", -10)
+Traceback (most recent call last):
+	...
+ValueError: weight must be greater than 0
+>>> bg.integer_validator("height", 0)
+Traceback (most recent call last):
+	...
+ValueError: height must be greater than 0
+>>> bg.integer_validator("w", [1])
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("w", {"a": 83, "diw": 1})
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("w", True)
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("w", None)
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("w", 13.8)
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("w", (4,))
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("w", {3, 4})
+Traceback (most recent call last):
+	...
+TypeError: w must be an integer
+>>> bg.integer_validator("length", 10)
